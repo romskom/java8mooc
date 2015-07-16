@@ -44,12 +44,15 @@ public class Lesson1 {
    * Create a string that consists of the first letter of each word in the list
    * of Strings provided.
    */
-  private void exercise1() {
-    List<String> list = Arrays.asList(
-        "alpha", "bravo", "charlie", "delta", "echo", "foxtrot");
+    private void exercise1() {
+        List<String> list = Arrays.asList(
+          "alpha", "bravo", "charlie", "delta", "echo", "foxtrot");
+        StringBuilder sb = new StringBuilder();
+        list.forEach(s ->  sb.append(s.substring(0,1)));
+        String result = sb.toString();
+        System.out.println(result);
 
-    /* YOUR CODE HERE */
-  }
+    }
 
   /**
    * Exercise 2
