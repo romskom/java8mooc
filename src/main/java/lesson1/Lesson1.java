@@ -63,7 +63,7 @@ public class Lesson1 {
       List<String> list = new ArrayList<>(Arrays.asList(
            "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
       list.removeIf(s -> s.length() % 2 == 0);
-      list.forEach(System.out::println);
+      System.out.println(list);
   }
 
   /**
@@ -72,10 +72,11 @@ public class Lesson1 {
    * Replace every word in the list with its upper case equivalent.
    */
   private void exercise3() {
-    List<String> list = new ArrayList<>(Arrays.asList(
+      List<String> list = new ArrayList<>(Arrays.asList(
         "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
+      list.replaceAll(s -> s.toUpperCase());
+      System.out.println(list);
 
-    /* YOUR CODE HERE */
   }
 
   /**
@@ -85,12 +86,20 @@ public class Lesson1 {
    * into a single string, in iteration order.
    */
   private void exercise4() {
-    Map<String, Integer> map = new TreeMap<>();
-    map.put("c", 3);
-    map.put("b", 2);
-    map.put("a", 1);
+      StringBuilder sb = new StringBuilder();
 
-    /* YOUR CODE HERE */
+      Map<String, Integer> map = new TreeMap<>();
+      map.put("c", 3);
+      map.put("b", 2);
+      map.put("a", 1);
+
+      map.forEach(
+              (x, y) -> {
+                  sb.append(x);
+                  sb.append(y);
+              }
+      );
+      System.out.println(sb.toString());
   }
 
   /**
@@ -100,8 +109,11 @@ public class Lesson1 {
    */
   private void exercise5() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-    /* YOUR CODE HERE */
+    new Thread(
+            () -> {
+                list.forEach(System.out::println);
+            }
+    ).run();
   }
 
   /**
