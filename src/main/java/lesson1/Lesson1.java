@@ -60,10 +60,10 @@ public class Lesson1 {
    * Remove the words that have odd lengths from the list.
    */
   private void exercise2() {
-    List<String> list = new ArrayList<>(Arrays.asList(
-        "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
-
-    /* YOUR CODE HERE */
+      List<String> list = new ArrayList<>(Arrays.asList(
+           "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
+      list.removeIf(s -> s.length() % 2 == 0);
+      list.forEach(System.out::println);
   }
 
   /**
